@@ -13,10 +13,11 @@
                 spec.data.forEach(function (d) {
                     if (data.files[d.url]) {
                         d.values = JSON.parse(data.files[d.url].content);
+                        delete d.url;
                     }
                 });
             }
-            vg.parse.spec(JSON.parse(vegaFile.content), function (chart) {
+            vg.parse.spec(spec, function (chart) {
                 chart({el: that}).update();
             });
         }
