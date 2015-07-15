@@ -1,10 +1,9 @@
 from github3 import GitHub
 import json
+import os
 
 
-with open('../config.json') as config_file:
-    config = json.load(config_file)
-    g = GitHub(config['user'], config['password'])
+g = GitHub(os.environ['GITHUB_USERNAME'], os.environ['GITHUB_PASSWORD'])
 
 
 def run(id):
