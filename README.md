@@ -15,9 +15,9 @@ come from the [Vega examples](http://vega.github.io/vega-editor/) built by the c
 at [Trifacta](http://www.trifacta.com/)
 and the [UW Interactive Data Lab](http://idl.cs.washington.edu/).
 
-Gist URLs are constructed as https://sitar.herokuapp.com/#username/gist-id.
+Gist URLs are constructed as http://sitar.herokuapp.com/#username/gist-id.
 
-User-level URLs are constructed as https://sitar.herokuapp.com/#username.
+User-level URLs are constructed as http://sitar.herokuapp.com/#username.
 
 # About
 
