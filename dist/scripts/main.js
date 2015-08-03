@@ -1,4 +1,4 @@
-(function (Backbone, d3, vg) {
+(function ($, Backbone, d3, vg) {
     'use strict';
 
     var router = new Backbone.Router();
@@ -31,12 +31,22 @@
             .attr('href', '#' + user);
         breadcrumb.append('span').text(' / ');
         breadcrumb.append('span').text(gist);
+        breadcrumb.append('span').text(' ');
+        breadcrumb.append('small').append('a')
+            .text('source')
+            .attr('href', 'https://gist.github.com/' + user + '/' + gist);
 
         d3.json('gist/' + gist, function (error, data) {
             var gistDiv = d3.select('.vis').append('div');
             gistDiv.append('h2').text(data.description);
             gistDiv.append('div').data([data]).each(renderVega);
             gistDiv.append('hr');
+            $.each(data.files, function (name, file) {
+                var fileDiv = d3.select('.vis').append('div');
+                fileDiv.append('h2').text(name);
+                fileDiv.append('pre').text(file.content);
+                fileDiv.append('hr');
+            });
         });
     }
 
@@ -71,4 +81,4 @@
     });
 
     Backbone.history.start();
-}(window.Backbone, window.d3, window.vg));
+}(window.$, window.Backbone, window.d3, window.vg));
